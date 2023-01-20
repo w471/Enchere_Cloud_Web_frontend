@@ -12,7 +12,7 @@ const Accueil = () => {
       method : "GET"
     };
 
-    fetch("http://127.0.0.1:8080/categories/stat1",content)
+    fetch("https://127.0.0.1:8080/categories/stat1",content)
     .then( response => {
       return response.json();
     })
@@ -20,7 +20,7 @@ const Accueil = () => {
         setPourentage(json);
     });
 
-    fetch("http://127.0.0.1:8080/categories/stat2",content)
+    fetch("https://127.0.0.1:8080/categories/stat2",content)
     .then( response => {
       return response.json();
     })
