@@ -18,7 +18,7 @@ const LoginAdmin = () => {
       email: email.current.value,
       password: pwd.current.value,
     });
-    fetch("http://127.0.0.1:8080/admins/checkLogin", content)
+    fetch("https://encherecloudws-production.up.railway.app/admins/checkLogin", content)
       .then((response) => {
         if (response.status !== 200) {
           throw new Error(response);
@@ -54,7 +54,7 @@ const LoginAdmin = () => {
 
           <div className="login-form">
             <form action="submit" method="post">
-              <input ref={email} defaultValue="amdin@gmail.com" type="email" placeholder="E-mail Address" />
+              <input ref={email} defaultValue="admin@gmail.com" type="email" placeholder="E-mail Address" />
               <input ref={pwd} defaultValue="mdp" type="password" placeholder="Password" />
               <button type="submit" onClick={HandleLogin}>
                 LOG-IN

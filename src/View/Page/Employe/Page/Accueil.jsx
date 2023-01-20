@@ -28,7 +28,7 @@ const Accueil = () => {
         setTrend(json);
     });
 
-    fetch("http://127.0.0.1:8080/categories/stat3",content)
+    fetch("https://127.0.0.1:8080/categories/stat3",content)
     .then( response => {
       return response.json();
     })

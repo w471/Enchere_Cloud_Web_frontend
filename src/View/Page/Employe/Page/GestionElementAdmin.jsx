@@ -9,7 +9,7 @@ const GestionElementAdmin = () => {
       method : "GET"
     };
 
-    fetch("http://127.0.0.1:8080/admins/categorisation",content)
+    fetch("http://encherecloudws-production.up.railway.app/admins/categorisation",content)
     .then( (response) => {
       if(response.status!==200)
         throw new Error(response);
@@ -33,7 +33,7 @@ const GestionElementAdmin = () => {
       },
     };
 
-    fetch("http://localhost:8080/encheres/2?duration="+duree.current.value, content)
+    fetch("http://encherecloudws-production.up.railway.app/encheres/2?duration="+duree.current.value, content)
      
   };
     return (

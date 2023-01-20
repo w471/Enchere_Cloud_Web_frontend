@@ -8,7 +8,7 @@ const Rechargement = () => {
         let content = {
             method : "GET"
         }
-        fetch("http://127.0.0.1:8080/admins",content)
+        fetch("http://encherecloudws-production.up.railway.app/admins",content)
         .then( (response) =>{
             return response.json();
         })
@@ -21,7 +21,7 @@ const Rechargement = () => {
         let content = {
             method : "GET"
         }
-        fetch("http://127.0.0.1:8080/admins/choice/"+choice+"?idRefill="+idRefill,content)
+        fetch("http://encherecloudws-production.up.railway.app/admins/choice/"+choice+"?idRefill="+idRefill,content)
     }
     
 
