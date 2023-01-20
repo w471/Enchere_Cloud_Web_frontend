@@ -1,9 +1,13 @@
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import ListeEnchere from "./View/Page/Employe/Page/ListeEnchere";
-import HistoriqueEnchere from "./View/Page/Employe/Page/HistoriqueEnchere";
-import LoginClient from "./View/Page/Employe/Page/LoginClient";
+import LoginAdmin from "./View/Page/Employe/Page/LoginAdmin";
+import Accueil from "./View/Page/Employe/Page/Accueil";
+import Pivot from "./View/Page/Employe/Page/Pivot";
+import GestionElementAdmin from "./View/Page/Employe/Page/GestionElementAdmin";
+import CategorieStat from "./View/Page/Employe/Component/CategorieStat";
+import Rechargement from "./View/Page/Employe/Page/Rechargement";
+
 
 function App() {
   return (
@@ -20,9 +24,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* Route relative to client */}
-          <Route path="/aClient" element={<ListeEnchere />} />
-          <Route path="/hEnchere" element={<HistoriqueEnchere />}></Route>
-          <Route path="/loginClient" element={<LoginClient />}></Route>
+          <Route path="/" element={<Pivot />} />
+          <Route path="/loginAdmin" element={<LoginAdmin />} />
+          <Route path="/rechargementCheck" element={<Rechargement />} />
+          <Route path="/categorieStat" element={<CategorieStat />} />
+          <Route path="/gestionAdmin" element={<GestionElementAdmin />} />
+          <Route path="/accueil" element={<Accueil />} />
           </Routes>
       </BrowserRouter>
     </div>

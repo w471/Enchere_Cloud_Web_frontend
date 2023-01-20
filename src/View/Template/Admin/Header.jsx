@@ -5,7 +5,7 @@ const Header = () => {
                 className="navbar navbar-expand-lg navbar-light bg-white sticky"
                 data-offset="500">
                 <div className="container">
-                <span className="text-primary">Client</span>
+                <span className="text-primary">Admin</span>
 
                 <button
                     className="navbar-toggler"
@@ -20,14 +20,21 @@ const Header = () => {
                 <div className="navbar-collapse collapse" id="navbarContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item active">
-                            <a href="/aClient" className="nav-link">
+                            <a href="/accueil" className="nav-link">
                             Home
                             </a>
                         </li>
 
                         <li className="nav-item">
-                        <a className="nav-link" href="/hEnchere">
-                            Mon historique
+                        <a className="nav-link" href="/rechargementCheck">
+                            Validation recharge compte
+                        </a>
+                        </li>
+
+                        
+                        <li className="nav-item">
+                        <a className="nav-link" href="/gestionAdmin">
+                            Gestion enchere
                         </a>
                         </li>
                         

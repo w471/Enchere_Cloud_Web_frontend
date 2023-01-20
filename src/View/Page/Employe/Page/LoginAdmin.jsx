@@ -1,14 +1,8 @@
 import React, { useRef } from "react";
-import Header from "../../../Template/Client/Header";
 
-const LoginClient = () => {
+const LoginAdmin = () => {
   const email = useRef(null);
   const pwd = useRef(null);
-
-  function setInfo_Appro(data) {
-    sessionStorage.setItem("Appro", JSON.stringify(data));
-    window.location.href = "/homeApprovisionnement";
-  }
 
   const HandleLogin = (event) => {
     event.preventDefault();
@@ -22,23 +16,26 @@ const LoginClient = () => {
 
     content.body = JSON.stringify({
       email: email.current.value,
-      pwd: pwd.current.value,
+      password: pwd.current.value,
     });
-    fetch("http://127.0.0.1:3000/loginAppro", content)
+    fetch("http://127.0.0.1:8080/admins/checkLogin", content)
       .then((response) => {
-        if (response.status === 400) {
-          alert("Mot de passe non identifier");
-        } else return response.json();
+        if (response.status !== 200) {
+          throw new Error(response);
+        } 
+        else if(response.status ===200)
+          return response.text();
       })
-      .then((json) => {
-        if (json.length !== 0) setInfo_Appro(json);
-        else alert("Mot de passe non identifier");
-      });
+      .then((token) => {
+          localStorage.setItem("tokenAdmin",token);
+          window.location.href = "/accueil";
+      })
+      .catch(error => {
+        alert("Mot de passe non identifier");
+      })
   };
 
   return (
-    <>
-    <Header />
     <div className="parent clearfix">
       <div className="bg-illustration">
         <div className="burger-btn">
@@ -50,14 +47,15 @@ const LoginClient = () => {
       <div className="login">
         <div className="container">
           <h1>
-            Login 
+            Login to access to
             <br />
+            your account
           </h1>
 
           <div className="login-form">
             <form action="submit" method="post">
-              <input ref={email} type="email" placeholder="E-mail Address" />
-              <input ref={pwd} type="password" placeholder="Password" />
+              <input ref={email} defaultValue="amdin@gmail.com" type="email" placeholder="E-mail Address" />
+              <input ref={pwd} defaultValue="mdp" type="password" placeholder="Password" />
               <button type="submit" onClick={HandleLogin}>
                 LOG-IN
               </button>
@@ -66,8 +64,7 @@ const LoginClient = () => {
         </div>
       </div>
     </div>
-    </>
   );
 };
 
-export default LoginClient;
+export default LoginAdmin;

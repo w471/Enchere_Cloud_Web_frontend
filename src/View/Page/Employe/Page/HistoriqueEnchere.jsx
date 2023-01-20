@@ -1,4 +1,4 @@
-import Header from "../../../Template/Client/Header";
+import Header from "../../../Template/Admin/Header";
 
 const HistoriqueEnchere = () => {
     return(
