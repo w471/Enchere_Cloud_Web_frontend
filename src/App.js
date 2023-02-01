@@ -7,6 +7,7 @@ import Pivot from "./View/Page/Employe/Page/Pivot";
 import GestionElementAdmin from "./View/Page/Employe/Page/GestionElementAdmin";
 import CategorieStat from "./View/Page/Employe/Component/CategorieStat";
 import Rechargement from "./View/Page/Employe/Page/Rechargement";
+import AccueilClient from "./View/Page/Employe/Page/Client/AccueilClient";
 
 
 function App() {
@@ -23,13 +24,17 @@ function App() {
     >
       <BrowserRouter>
         <Routes>
-          {/* Route relative to client */}
+          {/* Route relative to admin */}
           <Route path="/" element={<Pivot />} />
           <Route path="/loginAdmin" element={<LoginAdmin />} />
           <Route path="/rechargementCheck" element={<Rechargement />} />
           <Route path="/categorieStat" element={<CategorieStat />} />
           <Route path="/gestionAdmin" element={<GestionElementAdmin />} />
           <Route path="/accueil" element={<Accueil />} />
+
+          {/* Route relative to client */}
+          <Route path="/homeC" element={<AccueilClient/>} ></Route>
+
           </Routes>
       </BrowserRouter>
     </div>
