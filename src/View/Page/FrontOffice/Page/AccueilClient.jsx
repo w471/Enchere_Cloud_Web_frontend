@@ -145,7 +145,7 @@ const AccueilClient = () => {
                             <div className="col-lg-6">
                                 <div className="p-5">
                                     <div className="text-center">
-                                        <h4 className="text-dark mb-4">Caractéristiques de recherche</h4>
+                                        <h2 className="text-dark mb-4">Caractéristiques de recherche</h2>
                                     </div>
                 <input value="=" type={"hidden"} ref={ el => (sign.current[0] = el) } />
                 
@@ -166,19 +166,17 @@ const AccueilClient = () => {
                     </select>
                         </div>
                     </div>
-               
+               <br />
                     <div className="row">
                         <div className="col-lg-6">
                             <label>Timing start</label>
                         </div>
-
 
                         <div className="col-lg-3">
                             <div className="form-control form-control-user">
                                 <Choose  myRef={ el => (sign.current[1] = el) } />
                             </div>
                         </div>
-
                         <div className="col-lg-3">
                             <input className="form-control form-control-user" type={"datetime-local"} ref={el => (word.current[1] = el)} />
                         </div>
@@ -186,7 +184,7 @@ const AccueilClient = () => {
                         
                     </div>
                
-                
+                <br />
                     <div className="row">
                         <div className="col-lg-6">
                             <label>Description</label>
@@ -198,7 +196,7 @@ const AccueilClient = () => {
                         </div>
                     </div>
 
-
+                        <br />
                     <div className="row">
                         <div className="col-lg-6">
                             <label>status</label>
@@ -212,7 +210,7 @@ const AccueilClient = () => {
                         </select>
                         </div>
                     </div>
-                
+                <br />
                 
                 
                     <div className="row">
@@ -235,7 +233,7 @@ const AccueilClient = () => {
                     </div>
                
                 
-                
+                <br />
 
 
                 <button className="btn btn-primary d-block btn-user w-100" onClick={rechercher} >Rechercher</button>
@@ -262,7 +260,6 @@ const AccueilClient = () => {
             }
             </div>
         }
-
 
         {
             researchResult==null &&
