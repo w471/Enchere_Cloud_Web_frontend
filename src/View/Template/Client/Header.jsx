@@ -10,6 +10,7 @@ const Header = () => {
                 <ul className="navbar-nav">
                     <li className="nav-item"><a className="nav-link" href="/sF">Situation financière</a></li>
                     <li className="nav-item"><a className="nav-link" href="/roadHistorique">Consultation historique enchere</a></li>
+                    <li className="nav-item"><a className="nav-link" href="/commentaire">Vos feedbacks</a></li>
                 </ul>
             </div>
         </div>

@@ -104,7 +104,7 @@ const Comment = () => {
         <h2>Envoyez nous vos feedbacks</h2>
         <input type={"text"} ref={appreciation} placeholder="Appréciation général" />
         <input type={"text"} ref={commentaire} placeholder="Votre commentaire" />
-        <input type={"number"} max={20} min={0} ref={note} />
+        <input type={"number"} max={20} min={0} placeholder="Note" ref={note} />
         <button onClick={sendComment} >Envoyez</button>
         </>
     );
