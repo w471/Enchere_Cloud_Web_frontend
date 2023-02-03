@@ -11,6 +11,7 @@ import GestionElementAdmin from "./View/Page/BackOffice/Page/GestionElementAdmin
 import Accueil from "./View/Page/BackOffice/Page/Accueil";
 import Comment from "./View/Page/FrontOffice/Page/Comment";
 import HistoriquesEnchere from "./View/Page/FrontOffice/Page/HistoriquesEnchere";
+import EncherePreHistorique from "./View/Page/FrontOffice/Page/EncherePreHistorique";
 
 
 
@@ -39,11 +40,13 @@ function App() {
           {/* Route relative to client */}
           <Route path="/homeC" element={<AccueilClient/>} ></Route>
           <Route path="/commentaire" element={<Comment/>} />
+          <Route path="/roadHistorique" element={<EncherePreHistorique />} ></Route>
+          <Route path="/historiques" element={<HistoriquesEnchere />} />
 
           {/* Testing route */}
         {/* <Route path="/test" element={<EnchereStatus/>} ></Route>
         <Route path="/categorie" element={<EnchereStatus/>} ></Route> */}
-        <Route path="/test" element={<HistoriquesEnchere idEnchere={2} />} />
+        
 
           </Routes>
       </BrowserRouter>
