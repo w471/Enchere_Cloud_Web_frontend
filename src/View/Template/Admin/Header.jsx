@@ -1,49 +1,22 @@
 const Header = () => {
     return(
-        <header>
-             <nav
-                className="navbar navbar-expand-lg navbar-light bg-white sticky"
-                data-offset="500">
-                <div className="container">
-                <span className="text-primary">Admin</span>
-
-                <button
-                    className="navbar-toggler"
-                    data-toggle="collapse"
-                    data-target="#navbarContent"
-                    aria-controls="navbarContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-                <div className="navbar-collapse collapse" id="navbarContent">
-                    <ul className="navbar-nav ml-auto">
-                        <li className="nav-item active">
-                            <a href="/accueil" className="nav-link">
-                            Home
-                            </a>
-                        </li>
-
-                        <li className="nav-item">
-                        <a className="nav-link" href="/rechargementCheck">
-                            Validation recharge compte
-                        </a>
-                        </li>
-
-                        
-                        <li className="nav-item">
-                        <a className="nav-link" href="/gestionAdmin">
-                            Gestion enchere
-                        </a>
-                        </li>
-                        
-                    </ul>
-                </div>
-                </div>
-            </nav>
-        </header>
+        <>
+            <nav className="navbar navbar-light navbar-expand-md navigation-clean-search" >
+        <div className="container"><a className="navbar-brand" href="/accueil">Home</a><button data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="#navcol-1"><span className="visually-hidden">Toggle navigation</span><span className="navbar-toggler-icon"></span></button>
+            <div className="collapse navbar-collapse" id="navcol-1">
+                <ul className="navbar-nav">
+                    <li className="nav-item"><a className="nav-link" href="/gestionAdmin">Gestion enchere</a></li>
+                    <li className="nav-item"><a className="nav-link" href="/rechargementCheck">Validation recharge compte</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <hr/>
+        </>
+        
     );
 }
 
 export default Header;
+
+

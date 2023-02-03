@@ -47,7 +47,7 @@ const LoginClient =() =>{
                                     <div className="text-center">
                                         <h4 className="text-dark mb-4">Login client side</h4>
                                     </div>
-                                        <div className="mb-3"><input ref={email} className="form-control form-control-user" defaultValue="admin@gmail.com" type="email" placeholder="E-mail Address" /></div>
+                                        <div className="mb-3"><input ref={email} className="form-control form-control-user" defaultValue="jean@gmail.com" type="email" placeholder="E-mail Address" /></div>
                                         <div className="mb-3"><input ref={pwd} className="form-control form-control-user" defaultValue="mdp" type="password" placeholder="Password" /></div>
                                         <button className="btn btn-primary d-block btn-user w-100" onClick={HandleLogin} type="submit">Log in </button>
                                 </div>

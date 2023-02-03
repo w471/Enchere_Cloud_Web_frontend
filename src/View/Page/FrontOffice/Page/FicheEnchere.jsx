@@ -74,21 +74,33 @@ const FicheEnchere = () => {
         return(
             <>
             <Header></Header>
+            <div className="container">
+        <div className="row justify-content-center">
+            <div className="col-md-9 col-lg-12 col-xl-10">
                 <h2>Fiche de l'enchère</h2>
+                    <div className="card-body">
+                        <div className="row align-items-center no-gutters">
+                            <div className="col me-2">
+                                <div className="text-uppercase text-primary fw-bold text-xs mb-1"><span>{details.description}</span></div>
+                                <p><div className="text-dark fw-bold h5 mb-0">De la catégorie</div> : {details.nomCategorie}</p>
+                                <p><div className="text-dark fw-bold h5 mb-0">Durée </div>: {details.duration} h </p>
+                                <p><div className="text-dark fw-bold h5 mb-0">Propriétaire de l'objet </div>: {details.prenom}</p>
+                                <p><div className="text-dark fw-bold h5 mb-0">Current price </div>: {currentPrice}</p>
+                            </div>
+                            <label className="text-dark fw-bold h5 mb-0" >Votre propostion</label>
+                            <div className="row" >
+                                <input type={"number"} ref={money} />
+                            </div>
 
-                <h3>{details.description}</h3>
-                <h4>De la catégorie : {details.nomCategorie}</h4>
-
-                <p>Démarré : {details.timingStart} </p>
-                <p>Durre : {details.duration} h</p>
-
-                <h3>Propriétaire de l'objet : {details.prenom} </h3>
-
-                <h3>Current price : {currentPrice}</h3>
-
-                <label>Votre propostion</label>
-                <input type={"number"} ref={money} />
-                <button onClick={rencherir} >Renchérir</button>
+                            <div className="row" >
+                                <button className="btn btn-primary d-block btn-user w-100" onClick={rencherir} >Renchérir</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
             </>
         );
     }

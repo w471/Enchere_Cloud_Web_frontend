@@ -59,8 +59,17 @@ const AccueilClient = () => {
                 "Content-Type": "application/json"
             },
         };
-  
-        fetch(getUrl()+"/clients/list?idPersonne="+localStorage.getItem("idClient"), content)
+
+        let link = "";
+        // there will be cases where the client has no token still => give all enchere that can be bid upon
+        if(localStorage.getItem("idClient")!==null)
+            link = "list?idPersonne="+localStorage.getItem("idClient");
+
+        else
+            link = "lists";
+
+
+        fetch(getUrl()+"/clients/"+link, content)
         .then((response)=>{
             if(response.status===200)
                 return response.json();

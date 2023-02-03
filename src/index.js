@@ -7,6 +7,7 @@ import "./assets/bootstrap/css/bootstrap.min.css"
 import "./assets/fonts/fontawesome-all.min.css"
 import "./assets/fonts/font-awesome.min.css"
 import "./assets/fonts/fontawesome5-overrides.min.css"
+import "./assets/css/Navigation-with-Search.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

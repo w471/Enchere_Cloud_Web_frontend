@@ -1,5 +1,6 @@
 import Header from "../../../Template/Admin/Header";
 import { useState,useEffect } from "react";
+import { getUrl } from "../../../../Data/Url";
 
 const Rechargement = () => {
     const [allPending, setAllPending] = useState([]);
@@ -8,7 +9,7 @@ const Rechargement = () => {
         let content = {
             method : "GET"
         }
-        fetch("http://encherecloudws-production.up.railway.app/admins",content)
+        fetch(getUrl()+"/admins",content)
         .then( (response) =>{
             return response.json();
         })
@@ -21,7 +22,7 @@ const Rechargement = () => {
         let content = {
             method : "GET"
         }
-        fetch("http://encherecloudws-production.up.railway.app/admins/choice/"+choice+"?idRefill="+idRefill,content)
+        fetch(getUrl()+"/admins/choice/"+choice+"?idRefill="+idRefill,content)
     }
     
 
@@ -34,7 +35,7 @@ const Rechargement = () => {
                         <h2 className="text-center">Rechargement account</h2>
                         <p className="text-center"></p>
                     </div>
-                    <table border={1} className="d-flex justify-content-center flex-wrap">
+                    <table border={1} >
                         <tr>
                             <th>idClient</th>
                             <th>Montant</th>
@@ -43,8 +44,8 @@ const Rechargement = () => {
                         {
                         allPending.map( (element,index) => (
                             <tr key={index}>
-                                <td className="mb-3"> : {element.idClient}</td>
-                                <td className="mb-3">Montant : {element.vola}</td>
+                                <td className="mb-3">{element.idClient}</td>
+                                <td className="mb-3">{element.vola}</td>
                                 <td className="mb-3"><button onClick={ ()=>{myChoice(2,element.idRefill)} } className="btn btn-primary">Accepter</button></td>
                                 <td className="mb-3"><button onClick={ ()=>{myChoice(1,element.idRefill)} } className="btn btn-primary">Refuser</button></td>
                             </tr>        
