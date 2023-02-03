@@ -1,103 +1,76 @@
-/* Sticky Navigation */
-$(function() {
+(function() {
+  "use strict"; // Start of use strict
+
+  var sidebar = document.querySelector('.sidebar');
+  var sidebarToggles = document.querySelectorAll('#sidebarToggle, #sidebarToggleTop');
   
-  var sticky = $('.sticky');
-  var contentOffset;
-  var nav_height;
-  
-  if (sticky.length) {
+  if (sidebar) {
     
-    if ( sticky.data('offset') ) {
-      contentOffset = sticky.data('offset');
-    }
-    else {
-      contentOffset = sticky.offset().top;
-    }
-    nav_height = sticky.height();
-  }
-  
-  var scrollTop = $(window).scrollTop();
-  var window_height = $(window).height();
-  var doc_height = $(document).height();
-  
-  $(window).bind('resize', function() {
-    scrollTop = $(window).scrollTop();
-    window_height = $(window).height();
-    doc_height = $(document).height();
-    navHeight();
-  });
-  
-  $(window).bind('scroll', function() {
-    stickyNav();
-  });
-  
-  function navHeight() {
-    sticky.css('max-height', window_height + 'px');
-  }
-  
-  function stickyNav() {
-    scrollTop = $(window).scrollTop();
-    if (scrollTop > contentOffset) {
-      sticky.addClass('fixed');
-    }
-    else {
-      sticky.removeClass('fixed');
-    }
-  }
-  
-});
+    var collapseEl = sidebar.querySelector('.collapse');
+    var collapseElementList = [].slice.call(document.querySelectorAll('.sidebar .collapse'))
+    var sidebarCollapseList = collapseElementList.map(function (collapseEl) {
+      return new bootstrap.Collapse(collapseEl, { toggle: false });
+    });
 
-$('document').ready(function() {
-  var nav_height = 70;
+    for (var toggle of sidebarToggles) {
+
+      // Toggle the side navigation
+      toggle.addEventListener('click', function(e) {
+        document.body.classList.toggle('sidebar-toggled');
+        sidebar.classList.toggle('toggled');
+
+        if (sidebar.classList.contains('toggled')) {
+          for (var bsCollapse of sidebarCollapseList) {
+            bsCollapse.hide();
+          }
+        };
+      });
+    }
+
+    // Close any open menu accordions when window is resized below 768px
+    window.addEventListener('resize', function() {
+      var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
+      if (vw < 768) {
+        for (var bsCollapse of sidebarCollapseList) {
+          bsCollapse.hide();
+        }
+      };
+    });
+  }
+
+  // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
   
-  $("a[data-role='smoothscroll']").click(function(e) {
-    e.preventDefault();
+  var fixedNaigation = document.querySelector('body.fixed-nav .sidebar');
+  
+  if (fixedNaigation) {
+    fixedNaigation.on('mousewheel DOMMouseScroll wheel', function(e) {
+      var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
+      if (vw > 768) {
+        var e0 = e.originalEvent,
+          delta = e0.wheelDelta || -e0.detail;
+        this.scrollTop += (delta < 0 ? 1 : -1) * 30;
+        e.preventDefault();
+      }
+    });
+  }
+
+  var scrollToTop = document.querySelector('.scroll-to-top');
+  
+  if (scrollToTop) {
     
-    var position = $($(this).attr("href")).offset().top - nav_height;
-    
-    $("body, html").animate({
-      scrollTop: position
-    }, 1000 );
-    return false;
-  });
-});
+    // Scroll to top button appear
+    window.addEventListener('scroll', function() {
+      var scrollDistance = window.pageYOffset;
 
-$('document').ready(function() {
-  // Back to top
-  var backTop = $(".back-to-top");
-  
-  $(window).scroll(function() {
-    if($(document).scrollTop() > 400) {
-      backTop.css('visibility', 'visible');
-    }
-    else if($(document).scrollTop() < 400) {
-      backTop.css('visibility', 'hidden');
-    }
-  });
-  
-  backTop.click(function() {
-    $('html').animate({
-      scrollTop: 0
-    }, 1000);
-    return false;
-  });
-});
+      //check if user is scrolling up
+      if (scrollDistance > 100) {
+        scrollToTop.style.display = 'block';
+      } else {
+        scrollToTop.style.display = 'none';
+      }
+    });
+  }
 
-
-$('document').ready(function() {
-  
-  // Loader
-  $(window).on('load', function() {
-    $('.loader-container').fadeOut();
-  });
-  
-  // Tooltips
-  $('[data-toggle="tooltip"]').tooltip();
-  
-  // Popovers
-  $('[data-toggle="popover"]').popover();
-  
-  // Page scroll animate
-  new WOW().init();
-});
-
+})(); // End of use strict

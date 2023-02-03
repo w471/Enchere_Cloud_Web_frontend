@@ -1,13 +1,17 @@
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import LoginAdmin from "./View/Page/Employe/Page/LoginAdmin";
-import Accueil from "./View/Page/Employe/Page/Accueil";
-import Pivot from "./View/Page/Employe/Page/Pivot";
-import GestionElementAdmin from "./View/Page/Employe/Page/GestionElementAdmin";
-import CategorieStat from "./View/Page/Employe/Component/CategorieStat";
-import Rechargement from "./View/Page/Employe/Page/Rechargement";
-import AccueilClient from "./View/Page/Employe/Page/Client/AccueilClient";
+
+import AccueilClient from "./View/Page/FrontOffice/Page/AccueilClient";
+import Pivot from "./View/Page/BackOffice/Page/Pivot";
+import LoginAdmin from "./View/Page/BackOffice/Page/LoginAdmin";
+import Rechargement from "./View/Page/BackOffice/Page/Rechargement";
+import CategorieStat from "./View/Page/BackOffice/Component/CategorieStat";
+import GestionElementAdmin from "./View/Page/BackOffice/Page/GestionElementAdmin";
+import Accueil from "./View/Page/BackOffice/Page/Accueil";
+import Comment from "./View/Page/FrontOffice/Page/Comment";
+import HistoriquesEnchere from "./View/Page/FrontOffice/Page/HistoriquesEnchere";
+
 
 
 function App() {
@@ -34,6 +38,12 @@ function App() {
 
           {/* Route relative to client */}
           <Route path="/homeC" element={<AccueilClient/>} ></Route>
+          <Route path="/commentaire" element={<Comment/>} />
+
+          {/* Testing route */}
+        {/* <Route path="/test" element={<EnchereStatus/>} ></Route>
+        <Route path="/categorie" element={<EnchereStatus/>} ></Route> */}
+        <Route path="/test" element={<HistoriquesEnchere idEnchere={2} />} />
 
           </Routes>
       </BrowserRouter>

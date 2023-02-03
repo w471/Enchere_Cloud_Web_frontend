@@ -1,17 +1,12 @@
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import "./assets/stylesheets/stylelogin.css";
-import App from "./App";
-import "./assets/css/maicons.css";
-import "./assets/css/bootstrap.css";
-import "./assets/vendor/animate/animate.css";
-import "./assets/css/theme.css";
-import './assets/stylesheets/stylelogin.css'
-import './assets/stylesheets/FPE-Gentella-form-elements.css'
-import './assets/bootstrap/css/bootstrap.min.css'
 
+import App from "./App";
+import "./assets/bootstrap/css/bootstrap.min.css"
+import "./assets/fonts/fontawesome-all.min.css"
+import "./assets/fonts/font-awesome.min.css"
+import "./assets/fonts/fontawesome5-overrides.min.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
