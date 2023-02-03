@@ -1,7 +1,8 @@
 import { useState,useEffect } from "react";
 import EnchereStatus from "../Component/EnchereStatus";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getUrl } from "../../../../Data/Url";
+import Header from "../../../Template/Client/Header";
 const EncherePreHistorique = () => {
     const [allEnchere, setAllEnchere] = useState([]);
     const navigate = useNavigate();
@@ -39,6 +40,7 @@ const EncherePreHistorique = () => {
     
     return(
         <>
+        <Header></Header>
             <h2>Liste des ses propres encheres</h2>
             {
                 allEnchere.map( (element,index) =>(

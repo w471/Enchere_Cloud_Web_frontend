@@ -1,7 +1,8 @@
 import { useState,useEffect,useRef } from "react";
 import Header from "../../../Template/Admin/Header";
+import { getUrl } from "../../../../Data/Url";
 const GestionElementAdmin = () => {
-  const duree = useRef(null);
+  const duree = useRef([]);
   const [allEnchereNotDone, setAllEnchereNotDone] = useState([])
 
   useEffect(() => {
@@ -9,7 +10,7 @@ const GestionElementAdmin = () => {
       method : "GET"
     };
 
-    fetch("http://encherecloudws-production.up.railway.app/admins/categorisation",content)
+    fetch(getUrl()+"/admins/categorisation",content)
     .then( (response) => {
       if(response.status!==200)
         throw new Error(response);
@@ -23,8 +24,7 @@ const GestionElementAdmin = () => {
   }, [])
   
 
-  const HandleUpdate = (event) => {
-    event.preventDefault();
+  const HandleUpdate = (idEnchere,index) => {
 
     var content = {
       method: "PUT",
@@ -33,7 +33,8 @@ const GestionElementAdmin = () => {
       },
     };
 
-    fetch("http://encherecloudws-production.up.railway.app/encheres/2?duration="+duree.current.value, content)
+    console.log(duree.current.value);
+    fetch(getUrl()+"/encheres/"+idEnchere+"?duration="+duree.current[index].value, content)
      
   };
     return (
@@ -55,11 +56,11 @@ const GestionElementAdmin = () => {
               allEnchereNotDone.map( (element,index) =>(
                 <tr key={index}>
                     <td>{element.timingStart}</td>
-                    <td><input defaultValue={element.duration} ref={duree} type="number"/></td>
+                    <td><input defaultValue={element.duration} ref={ el => (duree.current[index] = el)} type="number"/></td>
                     <td>{element.description}</td>
                     <td>{element.startPrice}</td>
                     <td>{element.nomCategorie}</td>
-                    <td><button onClick={HandleUpdate}>Valider</button></td>
+                    <td><button onClick={()=>{HandleUpdate(element.idEnchere,index)}}>Valider</button></td>
                 </tr>
               ))
             }

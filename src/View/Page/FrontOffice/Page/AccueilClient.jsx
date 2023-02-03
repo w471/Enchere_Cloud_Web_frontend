@@ -3,10 +3,11 @@ import {useEffect, useRef, useState} from "react";
 import Choose from "../Component/Choose";
 import { getUrl } from "../../../../Data/Url";
 import EnchereStatus from "../Component/EnchereStatus";
-import Header from "../../../Template/Admin/Header";
+import Header from "../../../Template/Client/Header";
 
 
 const AccueilClient = () => {
+
     const [allCategorie, setAllCategorie] = useState([]);
     const [researchResult, setResearchResult] = useState(null);
     const [initialList, setInitialList] = useState([]);
@@ -59,7 +60,7 @@ const AccueilClient = () => {
             },
         };
   
-        fetch(getUrl()+"/clients/list?idPersonne=1"+localStorage.getItem("idClient"), content)
+        fetch(getUrl()+"/clients/list?idPersonne="+localStorage.getItem("idClient"), content)
         .then((response)=>{
             if(response.status===200)
                 return response.json();
@@ -124,6 +125,10 @@ const AccueilClient = () => {
             .catch((error) => {
               alert(error);
             })
+    }
+
+    const seeDetails = (idEnchere) => {
+        window.location.href = "/fiche/"+idEnchere;
     }
 
 
@@ -252,7 +257,7 @@ const AccueilClient = () => {
             <div className="row">
             {
                 researchResult.map( (element,index) =>(
-                    <EnchereStatus key={index} element={element} />  
+                    <EnchereStatus key={index} description={element.description} timingStart={element.timingStart} duration={element.duration} price={element.price} image={element.image} />
                 ))
             }
             </div>
@@ -264,7 +269,12 @@ const AccueilClient = () => {
             <div className="row">
             {
                 initialList.map( (element,index) =>(
-                    <EnchereStatus key={index} element={element} />  
+                    <>
+                        <EnchereStatus key={index} description={element.description} timingStart={element.timingStart} duration={element.duration} price={element.price} image={element.image} />
+                        <div className="col-lg-3">
+                            <button className="btn btn-primary d-block btn-user h-10 w-5" onClick={()=>{seeDetails(element.idEnchere)}} >Détails</button>
+                        </div>
+                    </>
                 ))
             }
             </div>

@@ -1,5 +1,6 @@
 import { useRef,useState,useEffect } from "react";
 import { getUrl } from "../../../../Data/Url";
+import Header from "../../../Template/Client/Header";
 const Comment = () => {
     const [allComment, setAllComment] = useState([]);
     const [clientInfos, setClientInfos] = useState(null);
@@ -84,6 +85,7 @@ const Comment = () => {
 
     return(
         <>
+        <Header></Header>
         <h2>Ce que nos utilisateurs ont pensé</h2>
         {
             allComment.map( (element,index) =>  (

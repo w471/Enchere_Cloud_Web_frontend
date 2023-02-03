@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 
 import AccueilClient from "./View/Page/FrontOffice/Page/AccueilClient";
-import Pivot from "./View/Page/BackOffice/Page/Pivot";
 import LoginAdmin from "./View/Page/BackOffice/Page/LoginAdmin";
 import Rechargement from "./View/Page/BackOffice/Page/Rechargement";
 import CategorieStat from "./View/Page/BackOffice/Component/CategorieStat";
@@ -12,6 +11,11 @@ import Accueil from "./View/Page/BackOffice/Page/Accueil";
 import Comment from "./View/Page/FrontOffice/Page/Comment";
 import HistoriquesEnchere from "./View/Page/FrontOffice/Page/HistoriquesEnchere";
 import EncherePreHistorique from "./View/Page/FrontOffice/Page/EncherePreHistorique";
+import FicheEnchere from "./View/Page/FrontOffice/Page/FicheEnchere";
+import MainAccueil from "./View/Page/MainAccueil";
+import Pivot from "./View/Page/BackOffice/Page/Pivot";
+import SituationFinanciere from "./View/Page/FrontOffice/Page/SituationFinanciere";
+import LoginClient from "./View/Page/FrontOffice/Page/LoginClient";
 
 
 
@@ -29,8 +33,11 @@ function App() {
     >
       <BrowserRouter>
         <Routes>
-          {/* Route relative to admin */}
-          <Route path="/" element={<Pivot />} />
+        <Route path="/" element={<MainAccueil />} />
+
+
+          {/* Route relative to admin */}  
+          <Route path="/pivotA" element={<Pivot />} ></Route>
           <Route path="/loginAdmin" element={<LoginAdmin />} />
           <Route path="/rechargementCheck" element={<Rechargement />} />
           <Route path="/categorieStat" element={<CategorieStat />} />
@@ -39,6 +46,9 @@ function App() {
 
           {/* Route relative to client */}
           <Route path="/homeC" element={<AccueilClient/>} ></Route>
+          <Route path="/loginClient" element={<LoginClient />} ></Route>
+          <Route path="/sF" element={<SituationFinanciere/>} ></Route>
+          <Route path="/fiche/:idEnchere" element={<FicheEnchere/>} ></Route>
           <Route path="/commentaire" element={<Comment/>} />
           <Route path="/roadHistorique" element={<EncherePreHistorique />} ></Route>
           <Route path="/historiques" element={<HistoriquesEnchere />} />
