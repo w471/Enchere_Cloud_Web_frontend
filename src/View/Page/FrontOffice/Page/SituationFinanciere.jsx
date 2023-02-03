@@ -26,11 +26,32 @@ const SituationFinanciere = () => {
         return (
             <>
                 <Header></Header>
-                <h2>Votre situation financière</h2>
+                
 
-                <p>Argent total dépensé : {situationF.totalSpent}</p>
-                <p>Argent total gagné : {situationF.totalIncome}</p>
-                <p>Votre solde : {situationF.solde} </p>
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-9 col-lg-12 col-xl-10">
+                    <div className="card shadow border-start-primary py-2">
+                            <div className="card-body p-0">
+                                <div className="row">
+                                    <div className="col-lg-3" ></div>
+                                    <div className="col-lg-6">
+                                        <div className="p-5">
+                                            <div className="text-center">
+                                                <h4 className="text-dark mb-4">Votre situation financière</h4>
+                                            </div>
+                                                <div className="mb-3">Argent total dépensé : {situationF.totalSpent}</div>
+                                                <div className="mb-3">Argent total gagné : {situationF.totalIncome}</div>
+                                                <div className="mb-3">Votre solde : {situationF.solde}</div>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-3" ></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </>
 
         );

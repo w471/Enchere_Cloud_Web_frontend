@@ -3,8 +3,8 @@ import {getUrl} from "../../../Data/Url";
 
 const Header = () => {
     return(
-        <header>
-             <nav
+        
+             <nav 
                 className="navbar navbar-expand-lg navbar-light bg-white sticky"
                 data-offset="500">
                 <div className="container">
@@ -45,7 +45,7 @@ const Header = () => {
                 </div>
                 </div>
             </nav>
-        </header>
+        
     );
 }
 
